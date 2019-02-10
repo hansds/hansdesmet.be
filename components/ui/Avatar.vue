@@ -23,6 +23,7 @@ components: {
   border-radius: 50%;
   overflow: hidden;
   display: inline-block;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   &__image {
     max-width: 100%;
