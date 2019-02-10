@@ -8,6 +8,13 @@ $breakpoints: (
   3x: $size-3x
 );
 
+@mixin reveal($timing) {
+  animation: fade-in .7s;
+  animation-delay: #{$timing*150}ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
 //
 //  RESPOND ABOVE
 //––––––––––––––––––––––––––––––––––––––––––––––––––

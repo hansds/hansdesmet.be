@@ -1,8 +1,6 @@
 <template>
   <div :class="computedMainClasses">
-    <div class="content">
-      <nuxt/>
-    </div>
+    <nuxt/>
   </div>
 </template>
 
@@ -22,28 +20,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-// .main >>> .header {
-
-// }
 .main {
   transition: background-color 200ms ease-in-out;
   margin: 1rem;
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   background: $c-gray-lightest;
   padding: 1.5rem;
-  // height: calc(100vh - 2rem);
 
+  min-height: calc(100vh - 2rem);
+
+  @include above(md) {
+    min-height: calc(100vh - 3rem);
+  }
 
   &--primary {
     background-color: $primary-color;
   }
-}
 
-.content {
-  // margin-top: 1rem;
+  @include above(md) {
+    margin: 1.5rem;
+  }
 }
 </style>
 

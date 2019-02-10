@@ -1,10 +1,10 @@
 <template>
-  <a :href="to" class="icon-link" target="_blank">
+  <nuxt-link :to="to" class="icon-link">
     <div class="icon-link__icon">
       <slot></slot>
     </div>
     {{label}}
-  </a>
+  </nuxt-link>
 </template>
 
 <script>

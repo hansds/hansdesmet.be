@@ -7,12 +7,12 @@
 export default {
   transition: 'fade',
   mounted() {
-    this.$store.commit('setMainClasses', ['main--gray-light']);
+    this.$store.commit('setMainClasses', ['main--primary']);
     this.$store.commit('setHeaderClasses', []);
   },
   head() {
     return {
-      title: 'Contacteer mij',
+      title: 'Contact - Hans De Smet',
     }
   },
 }
