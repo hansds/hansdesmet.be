@@ -22,6 +22,8 @@ export default {
 <style lang="scss" scoped>
 .main {
   transition: background-color 200ms ease-in-out;
+  display: flex;
+  align-items: center;
   margin: 1rem;
   position: absolute;
   top: 0;
@@ -36,8 +38,8 @@ export default {
     min-height: calc(100vh - 3rem);
   }
 
-  &--primary {
-    background-color: $primary-color;
+  &--primary-dark {
+    background-color: $primary-color-dark;
   }
 
   @include above(md) {

@@ -60,7 +60,6 @@ export default {
   transition: 'fade',
   mounted() {
     this.$store.commit('setMainClasses', ['main--light']);
-    this.$store.commit('setHeaderClasses', []);
   },
 }
 </script>
@@ -117,13 +116,13 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 @include above(md) {
   .content {
     flex-direction: row;
     padding: 5vw;
-    font-size: 1.5vw;
 
     &__aside {
       flex-basis: 35%;
@@ -137,7 +136,7 @@ export default {
     }
 
     .social {
-      font-size: .8em;
+      font-size: .75em;
     }
 
     .avatar {
@@ -147,6 +146,12 @@ export default {
     .c-typo-heading {
       margin-top: 1rem;
     }
+  }
+}
+
+@include above(lg) {
+  .content {
+    font-size: 1.5vw;
   }
 }
 </style>

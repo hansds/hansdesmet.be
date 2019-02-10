@@ -3,10 +3,9 @@
     <div class="columns">
       <div class="column">
         <div class="error">
-          <h3 class="c-typography-subtitle c-typography-subtitle--secondary" v-if="error.statusCode === 404">We konden niet vinden waar je naar op zoek bent.</h3>
-          <h3 class="c-typography-subtitle c-typography-subtitle--secondary" v-else>Er deed zich een fout voor.</h3>
-            <Button label="Terug naar huis" to="/"/>
-
+          <h3 class="c-typography-subtitle c-typography-subtitle--secondary" v-if="error.statusCode === 404">Couldn't find what you were looking for...</h3>
+          <h3 class="c-typography-subtitle c-typography-subtitle--secondary" v-else>An error occured.</h3>
+            <Button label="Go back home" to="/"/>
         </div>
       </div>
     </div>
@@ -24,7 +23,6 @@ export default {
   transition: 'fade',
   mounted() {
     this.$store.commit('setMainClasses', []);
-    this.$store.commit('setHeaderClasses', []);
   },
 }
 </script>
