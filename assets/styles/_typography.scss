@@ -9,26 +9,27 @@
   font-weight: bold;
 }
 
-body {
-  font-size: 1rem;
-
-  @include above(lg) {
-    font-size: 4rem;
-  }
-
-  @include above(3x) {
-    font-size: 1.3rem;
-  }
-
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: bold;
 }
 
 .c-typo-heading {
-  font-size: 2.4em;
+  font-size: 1.8em;
+  line-height: 1.35em;
+}
+
+.c-typo-subheading {
+  font-size: 1.3em;
+  line-height: 1.35em;
+}
+
+.c-typo--muted {
+  color: $c-gray-light;
+}
+
+.c-typo--primary {
+  color: $c-primary;
 }
 
 /*

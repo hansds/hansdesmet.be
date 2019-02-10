@@ -1,15 +1,17 @@
-const titleTemplate = c => c ? `${c} - Hans De Smet` : 'Hans De Smet'
-
 export default {
   /*
   ** Headers of the page
   */
   head: {
-    titleTemplate,
+    title: 'Hans De Smet - Freelance certified Salesforce consultant and developer from Belgium',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' }
+      { hid: 'description', name: 'description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' },
+      { name: 'keywords', content: 'salesforce, consultant, consultancy, IT consultant, consulting, heroku, sales cloud, service cloud, CRM, developer, development, marketing cloud, einstein analytics, analytics, BI, aalst, belgium, AI, hans de smet'},
+      { property: 'og:description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' },
+      { property: 'og:image', content: 'https://hansdesmet.be/avatar@2x.jpg' },
+      { property: 'og:type', content: 'website' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -21,7 +23,7 @@ export default {
         innerHTML: JSON.stringify(
           {
             '@context': 'http://schema.org',
-            '@type': 'HealthAndBeautyBusiness',
+            '@type': 'LocalBusiness',
             'name': 'Hans De Smet',
             'image': 'https://hansdesmet.be/avatar@2x.jpg',
             '@id': 'https://hansdesmet.be',
