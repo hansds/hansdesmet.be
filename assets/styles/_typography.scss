@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "MaisonNeueBold";
+  // src: url("~assets/fonts/MaisonNeueBold.eot");
+  // src: url("~assets/fonts/MaisonNeueBold.eot?#iefix")format("embedded-opentype"),
+  // url("~assets/fonts/MaisonNeueBold.woff") format("woff"),
+  // url("~assets/fonts/MaisonNeueBold.ttf") format("truetype");
+  src: url("~assets/fonts/MaisonNeueBold.ttf") format("truetype");
+  font-style: bold;
+  font-weight: bold;
+}
+
+body {
+  font-size: 1rem;
+
+  @include above(lg) {
+    font-size: 4rem;
+  }
+
+  @include above(3x) {
+    font-size: 1.3rem;
+  }
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-weight: bold;
+}
+
+.c-typo-heading {
+  font-size: 2.4em;
+}
+
+/*
+ * Modifiers
+ */
+
+ .c-typo--center {
+   text-align: center;
+ }

@@ -1,0 +1,32 @@
+/*
+ * Fade
+ */
+.fade-enter-active{
+  animation: fade-in .3s;
+}
+.fade-leave-active{
+  animation: fade-out .15s;
+}
+
+@keyframes fade-in {
+  0% { transform: scale(.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(.96); opacity: 0; }
+}
+
+@keyframes fade-in-up-small {
+  0% { transform: translateY(2rem); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/*
+* Fade in for images
+*/
+@keyframes fade-in-image {
+  0% { transform: scale(.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
