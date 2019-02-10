@@ -13,9 +13,8 @@ handlers:
 env_variables:
   HOST: "0.0.0.0"
   NODE_ENV: "production"
-  BASE_URL: "https://strak-plan.appspot.com"
-  # GOOGLE_ANALYTICS_ID: "UA-157287-9"
+  BASE_URL: "https://hansdesmet.be"
   SENDGRID_API_KEY: "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"
-  CONTACT_TO_ADDRESS: "leen@strak-plan.be"
-  CONTACT_FROM_ADDRESS: "website@strak-plan.be"
-  CONTACT_SUBJECT: "Nieuw bericht van Strak Plan"
+  CONTACT_TO_ADDRESS: "hello@hansdesmet.be"
+  CONTACT_FROM_ADDRESS: "website@hansdesmet.be"
+  CONTACT_SUBJECT: "New Message from hansdesmet.be"

@@ -7,15 +7,44 @@
     <p class="c-typo-subheading">
       I’m a <span class="c-typo--primary">3x certified Salesforce consultant</span>, passionate about technology, business and design.
     </p>
+    <ul class="social">
+      <li class="social__link">
+        <icon-link label="Resume on LinkedIn">
+          <svg>
+            <use xlink:href="#linkedin"></use>
+          </svg>
+        </icon-link>
+      </li>
+      <li class="social__link">
+        <icon-link label="Code on GitHub">
+          <svg>
+            <use xlink:href="#github"></use>
+          </svg>
+        </icon-link>
+      </li>
+      <li class="social__link">
+        <icon-link label="Send me a mail">
+          <svg>
+            <use xlink:href="#mail"></use>
+          </svg>
+        </icon-link>
+      </li>
+    </ul>
+
   </div>
 </template>
 
 <script>
 import Avatar from "~/components/ui/Avatar.vue";
+import IconLink from "~/components/ui/IconLink.vue";
+import linkedin from '@/assets/svg/linkedin.svg';
+import github from '@/assets/svg/github.svg';
+import mail from '@/assets/svg/mail.svg';
 
 export default {
   components: {
-    Avatar
+    Avatar,
+    IconLink
   },
   transition: 'fade',
   mounted() {
@@ -47,9 +76,15 @@ export default {
     bottom: -3em;
     left: 0;
     width: 45%;
+    max-width: 6rem;
     height: .2em;
     background-color: $c-primary;
   }
+}
+
+.social {
+  list-style: none;
+  margin: 0;
 }
 </style>
 
