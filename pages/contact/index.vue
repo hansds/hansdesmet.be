@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="columns" v-if="!isSent" key="isNotSent">
-        <div class="column">
+        <div class="column title">
           <h1 class="c-typo-heading">
             Get in touch
           </h1>
@@ -22,12 +22,12 @@
             </svg>
           </nuxt-link>
         </div>
-        <div class="column col-6 col-md-12">
+        <div class="column col-6 col-md-12 form">
           <input type="text" placeholder="Name" name="name" v-model="name" :disabled="isSubmitting" v-validate="'required|alpha_spaces'" :class="inputStyleFunctions('name')">
           <input type="text" placeholder="Phone" name="phone" v-model="phone" :disabled="isSubmitting" :class="inputStyleFunctions('phone')">
           <input type="email" placeholder="E-mail" name="email" v-model="email" :disabled="isSubmitting" v-validate="'required|email'" :class="inputStyleFunctions('email')">
         </div>
-        <div class="column col-6 col-md-12">
+        <div class="column col-6 col-md-12 form">
           <textarea cols="30" rows="3" placeholder="Message" name="message" v-model="message" :disabled="isSubmitting" v-validate="'required'" :class="inputStyleFunctions('message')"></textarea>
           <button class="send" :disabled="!isValidToSubmit" @click="validateAndSubmit">Send</button>
         </div>
@@ -137,6 +137,13 @@ export default {
     line-height: 1em;
   }
 
+  .title {
+    @include reveal(1);
+  }
+
+  .form {
+    @include reveal(2);
+  }
 
   .action {
     height: 3em;
@@ -168,7 +175,6 @@ export default {
 
  .contact-form {
     flex: 1;
-    @include reveal(1);
 
     @include above(md) {
       min-height: 10rem;
