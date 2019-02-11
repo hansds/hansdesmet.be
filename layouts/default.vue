@@ -38,8 +38,8 @@ export default {
     min-height: calc(100vh - 3rem);
   }
 
-  &--primary-dark {
-    background-color: $primary-color-dark;
+  &--dark {
+    background-color: #191B1F;
   }
 
   @include above(md) {

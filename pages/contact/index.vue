@@ -6,12 +6,22 @@
       <div class="columns" v-if="isSent" key="isSent">
         <div class="column col-12" >
           <div class="success">
-            <h4 class="c-typography-p">Uw bericht werd verzonden!</h4>
+            <h4 class="c-typography-p">Thanks! I'll get back to you as soon as possible.</h4>
             <animated-check class="animated-check"/>
           </div>
         </div>
       </div>
       <div class="columns" v-if="!isSent" key="isNotSent">
+        <div class="column">
+          <h1 class="c-typo-heading">
+            Get in touch
+          </h1>
+          <nuxt-link class="action action--close" to="/">
+            <svg>
+              <use xlink:href="#close"></use>
+            </svg>
+          </nuxt-link>
+        </div>
         <div class="column col-6 col-md-12">
           <input type="text" placeholder="Name" name="name" v-model="name" :disabled="isSubmitting" v-validate="'required|alpha_spaces'" :class="inputStyleFunctions('name')">
           <input type="text" placeholder="Phone" name="phone" v-model="phone" :disabled="isSubmitting" :class="inputStyleFunctions('phone')">
@@ -19,7 +29,7 @@
         </div>
         <div class="column col-6 col-md-12">
           <textarea cols="30" rows="3" placeholder="Message" name="message" v-model="message" :disabled="isSubmitting" v-validate="'required'" :class="inputStyleFunctions('message')"></textarea>
-          <button class="btn btn-primary" :disabled="!isValidToSubmit" @click="validateAndSubmit">Send</button>
+          <button class="send" :disabled="!isValidToSubmit" @click="validateAndSubmit">Send</button>
         </div>
       </div>
     </transition>
@@ -30,11 +40,12 @@
 
 <script>
 import AnimatedCheck from "~/components/ui/AnimatedCheck.vue";
+import close from '@/assets/svg/close.svg';
 
 export default {
   transition: 'fade',
   mounted() {
-    this.$store.commit('setMainClasses', ['main--primary-dark']);
+    this.$store.commit('setMainClasses', ['main--dark']);
   },
   head() {
     return {
@@ -105,7 +116,6 @@ export default {
 
 <style lang="scss" scoped>
 
-$form-color: #102498;
   .contact {
     display: flex;
     padding: 0 1.5rem;
@@ -118,6 +128,41 @@ $form-color: #102498;
 
     @include above(md){
       padding: 0 10vw;
+    }
+  }
+
+  .c-typo-heading {
+    color: $c-gray-light;
+    font-size: 5em;
+    line-height: 1em;
+  }
+
+
+  .action {
+    height: 3em;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+
+    &--close {
+      position: absolute;
+      right: 0em;
+      top: 1rem;
+
+      svg {
+        width: 3em;
+        height: 3em;
+        fill: $c-gray-light;
+      }
     }
   }
 
@@ -171,7 +216,7 @@ $form-color: #102498;
   }
 
   &::placeholder {
-    color: darken($border-color, 15);
+    color: $c-gray-light;
   }
 
   + .form-input {
@@ -183,15 +228,21 @@ $form-color: #102498;
   }
 }
 
-.btn {
+.send {
   margin-top: 1rem;
   line-height: 1rem;
   height: auto;
-  width: 100%;
-  padding: .75rem;
+  background-color: transparent;
+  border: none;
+  padding: .75rem 0;
+  color: $light-color;
 
-  @include above(xl) {
-    padding: 1.15rem;
+  &:active, &:focus, &:hover {
+    color: $primary-color;
+  }
+
+  &:disabled {
+    color: $c-gray-light;
   }
 }
 
