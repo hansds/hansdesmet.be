@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "dev-debug": "node --inspect node_modules/.bin/nuxt",
-    "deploy": "nuxt build && gcloud app deploy",
+    "deploy": "nuxt build && gcloud config set project hansdesmet && gcloud app deploy",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
