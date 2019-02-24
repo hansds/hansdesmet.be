@@ -5,6 +5,11 @@
   }
 }
 
+::selection {
+  background-color: $primary-color;
+  color: $light-color;
+}
+
 .v-lazy-image {
   opacity: 0;
 }

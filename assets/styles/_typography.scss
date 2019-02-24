@@ -1,17 +1,20 @@
 @font-face {
-  font-family: "MaisonNeueBold";
-  // src: url("~assets/fonts/MaisonNeueBold.eot");
-  // src: url("~assets/fonts/MaisonNeueBold.eot?#iefix")format("embedded-opentype"),
-  // url("~assets/fonts/MaisonNeueBold.woff") format("woff"),
-  // url("~assets/fonts/MaisonNeueBold.ttf") format("truetype");
-  src: url("~assets/fonts/MaisonNeueBold.ttf") format("truetype");
-  font-style: bold;
+  font-family: 'MaisonNeueBold';
+  src:
+    url('~assets/fonts/MaisonNeue-Bold.woff2') format('woff2'),
+    url('~assets/fonts/MaisonNeue-Bold.woff') format('woff');
   font-weight: bold;
+  font-style: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: bold;
+}
+
+p, a, span, h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'tnum' 1;
+  text-rendering: optimizeLegibility;
 }
 
 .c-typo-heading {
