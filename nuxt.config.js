@@ -1,9 +1,14 @@
+const title = 'Hans De Smet - Freelance certified Salesforce consultant and developer from Belgium';
+const url = 'https://hansdesmet.be';
 export default {
   /*
   ** Headers of the page
   */
   head: {
-    title: 'Hans De Smet - Freelance certified Salesforce consultant and developer from Belgium',
+    title: title,
+    htmlAttrs: {
+      lang: 'en',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,6 +17,8 @@ export default {
       { property: 'og:description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' },
       { property: 'og:image', content: 'https://hansdesmet.be/avatar@2x.jpg' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: title },
+      { property: 'og:url', content: url},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -26,8 +33,8 @@ export default {
             '@type': 'LocalBusiness',
             'name': 'Hans De Smet',
             'image': 'https://hansdesmet.be/avatar@2x.jpg',
-            '@id': 'https://hansdesmet.be',
-            'url': 'https://hansdesmet.be',
+            '@id': url,
+            'url': url,
             'logo': 'https://hansdesmet.be/logo.png',
             'telephone': '+32476959269',
             'priceRange': '€',
@@ -47,7 +54,7 @@ export default {
               '@context': 'http://schema.org/',
               '@type': 'Person',
               'name': 'Hans De Smet',
-              'url': 'https://hansdesmet.be',
+              'url': url,
               'image': 'https://hansdesmet.be/avatar@2x.jpg',
               'jobTitle': 'IT Consultant',
               'worksFor': {
@@ -107,7 +114,8 @@ export default {
       '@/assets/styles/_mixins.scss',
     ]],
     '@nuxtjs/google-analytics',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    'nuxt-compress'
   ],
   axios: {
     baseURL: process.env.BASE_URL
