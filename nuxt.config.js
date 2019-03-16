@@ -114,8 +114,7 @@ export default {
       '@/assets/styles/_mixins.scss',
     ]],
     '@nuxtjs/google-analytics',
-    '@nuxtjs/sitemap',
-    'nuxt-compress'
+    '@nuxtjs/sitemap'
   ],
   axios: {
     baseURL: process.env.BASE_URL
