@@ -1,5 +1,5 @@
 const title = 'Hans De Smet - Freelance certified Salesforce consultant and developer from Belgium';
-const url = 'https://hansdesmet.be';
+const url = 'https://www.hansdesmet.be';
 export default {
   /*
   ** Headers of the page
@@ -15,7 +15,7 @@ export default {
       { hid: 'description', name: 'description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' },
       { name: 'keywords', content: 'salesforce, consultant, consultancy, IT consultant, consulting, heroku, sales cloud, service cloud, CRM, developer, development, marketing cloud, einstein analytics, analytics, BI, aalst, belgium, AI, hans de smet'},
       { property: 'og:description', content: 'Hans De Smet is a freelance IT architect and certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.' },
-      { property: 'og:image', content: 'https://hansdesmet.be/avatar@2x.jpg' },
+      { property: 'og:image', content: 'https://www.hansdesmet.be/avatar@2x.jpg' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: title },
       { property: 'og:url', content: url},
@@ -32,10 +32,10 @@ export default {
             '@context': 'http://schema.org',
             '@type': 'LocalBusiness',
             'name': 'Hans De Smet',
-            'image': 'https://hansdesmet.be/avatar@2x.jpg',
+            'image': 'https://www.hansdesmet.be/avatar@2x.jpg',
             '@id': url,
             'url': url,
-            'logo': 'https://hansdesmet.be/logo.png',
+            'logo': 'https://www.hansdesmet.be/logo.png',
             'telephone': '+32476959269',
             'priceRange': '€',
             'address': {
@@ -55,7 +55,7 @@ export default {
               '@type': 'Person',
               'name': 'Hans De Smet',
               'url': url,
-              'image': 'https://hansdesmet.be/avatar@2x.jpg',
+              'image': 'https://www.hansdesmet.be/avatar@2x.jpg',
               'jobTitle': 'IT Consultant',
               'worksFor': {
                 '@type': 'Organization',
@@ -71,7 +71,7 @@ export default {
               '@type': 'ReserveAction',
               'target': {
                 '@type': 'EntryPoint',
-                'urlTemplate': 'https://hansdesmet.be/contact',
+                'urlTemplate': 'https://www.hansdesmet.be/contact',
                 'inLanguage': 'en-US',
                 'actionPlatform': [
                   'http://schema.org/DesktopWebPlatform',
@@ -125,7 +125,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://hansdesmet.be',
+    hostname: 'https://www.hansdesmet.be',
     gzip: true,
     generate: false
   },

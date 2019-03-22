@@ -13,7 +13,7 @@ handlers:
 env_variables:
   HOST: "0.0.0.0"
   NODE_ENV: "production"
-  BASE_URL: "https://hansdesmet.be"
+  BASE_URL: "https://www.hansdesmet.be"
   CANONICAL_DOMAIN: "www.hansdesmet.be"
   SENDGRID_API_KEY: "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"
   CONTACT_TO_ADDRESS: "hello@hansdesmet.be"
