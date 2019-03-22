@@ -70,6 +70,11 @@ export default {
   height: 30vw;
   max-width: 10rem;
   max-height: 10rem;
+
+  @include above(3x) {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
 }
 
 .c-typo-heading {
