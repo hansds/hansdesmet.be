@@ -102,6 +102,7 @@ export default {
   ],
   serverMiddleware: [
     '~/api/contact',
+    '~/middleware/redirect-to-www'
   ],
   /**
    * Modules
