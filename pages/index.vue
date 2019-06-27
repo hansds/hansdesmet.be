@@ -10,7 +10,7 @@
         Hi, I’m Hans De Smet<span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
-        I’m a <span class="c-typo--primary">6x certified Salesforce consultant</span>, passionate about technology, business and design.
+        I’m a <span class="c-typo--primary">7x certified Salesforce consultant</span>, passionate about technology, business and design.
       </p>
       <div>
         <h3 class="social-title">Get in touch</h3>
