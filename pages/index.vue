@@ -1,16 +1,17 @@
 <template>
   <div class="content">
-
     <div class="content__aside">
-      <avatar/>
+      <avatar />
     </div>
 
     <div class="content__main">
       <h1 class="c-typo-heading">
-        Hi, I’m Hans De Smet<span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
+        Hi, I’m Hans De Smet
+        <span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
-        I’m a <span class="c-typo--primary">8x certified Salesforce consultant</span>, passionate about technology, business and design.
+        I’m an
+        <span class="c-typo--primary">8x certified Salesforce consultant</span>, passionate about technology, business and design.
       </p>
       <div>
         <h3 class="social-title">Get in touch</h3>
@@ -18,28 +19,27 @@
           <li class="social__link">
             <icon-link label="Resume on LinkedIn" to="https://www.linkedin.com/in/hans-de-smet">
               <svg>
-                <use xlink:href="#linkedin"></use>
+                <use xlink:href="#linkedin" />
               </svg>
             </icon-link>
           </li>
           <li class="social__link">
             <icon-link label="Code on GitHub" to="https://github.com/hansds">
               <svg>
-                <use xlink:href="#github"></use>
+                <use xlink:href="#github" />
               </svg>
             </icon-link>
           </li>
           <li class="social__link">
             <icon-route label="Send me a message" to="/contact">
               <svg>
-                <use xlink:href="#mail"></use>
+                <use xlink:href="#mail" />
               </svg>
             </icon-route>
           </li>
         </ul>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -47,9 +47,9 @@
 import Avatar from "~/components/ui/Avatar.vue";
 import IconLink from "~/components/ui/IconLink.vue";
 import IconRoute from "~/components/ui/IconRoute.vue";
-import linkedin from '@/assets/svg/linkedin.svg';
-import github from '@/assets/svg/github.svg';
-import mail from '@/assets/svg/mail.svg';
+import linkedin from "@/assets/svg/linkedin.svg";
+import github from "@/assets/svg/github.svg";
+import mail from "@/assets/svg/mail.svg";
 
 export default {
   components: {
@@ -57,11 +57,11 @@ export default {
     IconLink,
     IconRoute
   },
-  transition: 'fade',
+  transition: "fade",
   mounted() {
-    this.$store.commit('setMainClasses', ['main--light']);
-  },
-}
+    this.$store.commit("setMainClasses", ["main--light"]);
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -89,13 +89,13 @@ export default {
   @include reveal(1);
 
   &::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     bottom: -3em;
     left: 0;
     width: 45%;
     max-width: 6rem;
-    height: .15em;
+    height: 0.15em;
     background-color: $c-primary;
   }
 }
@@ -141,7 +141,7 @@ export default {
     }
 
     .social {
-      font-size: .75em;
+      font-size: 0.75em;
     }
 
     .avatar {
