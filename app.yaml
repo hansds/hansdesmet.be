@@ -15,7 +15,7 @@ env_variables:
   NODE_ENV: "production"
   BASE_URL: "https://www.hansdesmet.be"
   CANONICAL_DOMAIN: "www.hansdesmet.be"
-  SENDGRID_API_KEY: "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"
+  SENDGRID_API_KEY: "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"
   CONTACT_TO_ADDRESS: "hello@hansdesmet.be"
   CONTACT_FROM_ADDRESS: "website@hansdesmet.be"
   CONTACT_SUBJECT: "New Message from hansdesmet.be"
