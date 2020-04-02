@@ -117,6 +117,13 @@ export default {
     this.$store.commit('setMainClasses', ['main--dark'])
   },
   methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
     inputStyleFunctions(inputName) {
       return {
         'form-input': true,
@@ -132,12 +139,29 @@ export default {
       this.isSubmitting = true
 
       try {
-        await this.$axios.$post('api/contact', {
-          name: this.name,
-          email: this.email,
-          message: this.message,
-          phone: this.phone
-        })
+        // await this.$axios.$post('api/contact', {
+        //   name: this.name,
+        //   email: this.email,
+        //   message: this.message,
+        //   phone: this.phone
+        // })
+
+        const axiosConfig = {
+          header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }
+        await this.$axios.$post(
+          '/',
+          this.encode({
+            'form-name': 'contact',
+            ...{
+              name: this.name,
+              email: this.email,
+              message: this.message,
+              phone: this.phone
+            }
+          }),
+          axiosConfig
+        )
 
         this.name = ''
         this.phone = ''
