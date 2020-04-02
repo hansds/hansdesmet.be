@@ -1,44 +1,58 @@
 @font-face {
-  font-family: 'MaisonNeueBold';
-  src:
-    url('~assets/fonts/MaisonNeue-Bold.woff2') format('woff2'),
-    url('~assets/fonts/MaisonNeue-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: bold;
+    font-family: 'MaisonNeueBold';
+    src:
+        url('~assets/fonts/MaisonNeue-Bold.woff2') format('woff2'),
+        url('~assets/fonts/MaisonNeue-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: bold;
+    font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font-family;
-  font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $header-font-family;
+    font-weight: bold;
 }
 
-p, a, span, h1, h2, h3, h4, h5, h6 {
-  font-feature-settings: 'kern' 1, 'liga' 1, 'tnum' 1;
-  text-rendering: optimizeLegibility;
+p,
+a,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-feature-settings: 'kern'1, 'liga'1, 'tnum'1;
+    text-rendering: optimizeLegibility;
 }
 
 .c-typo-heading {
-  font-size: 1.8em;
-  line-height: 1.35em;
+    font-size: 1.8em;
+    line-height: 1.35em;
 }
 
 .c-typo-subheading {
-  font-size: 1.3em;
-  line-height: 1.35em;
+    font-size: 1.3em;
+    line-height: 1.35em;
 }
 
 .c-typo--muted {
-  color: $c-gray-light;
+    color: $c-gray-light;
 }
 
 .c-typo--primary {
-  color: $c-primary;
+    color: $c-primary;
 }
 
 /*
  * Modifiers
  */
 
- .c-typo--center {
-   text-align: center;
- }
+.c-typo--center {
+    text-align: center;
+}

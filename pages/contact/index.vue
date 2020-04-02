@@ -2,15 +2,17 @@
   <div class="contact">
     <div class="contact-form">
       <transition name="fade">
-        <div class="columns" v-if="isSent" key="isSent">
+        <div v-if="isSent" key="isSent" class="columns">
           <div class="column col-12">
             <div class="success">
-              <h4 class="c-typography-p">Thanks! I'll get back to you as soon as possible.</h4>
+              <h4 class="c-typography-p">
+                Thanks! I'll get back to you as soon as possible.
+              </h4>
               <animated-check class="animated-check" />
             </div>
           </div>
         </div>
-        <div class="columns" v-if="!isSent" key="isNotSent">
+        <div v-if="!isSent" key="isNotSent" class="columns">
           <div class="column title">
             <h1 class="c-typo-heading">Get in touch</h1>
             <nuxt-link class="action action--close" to="/">
@@ -21,44 +23,50 @@
           </div>
           <div class="column col-6 col-md-12 form">
             <input
+              v-model="name"
+              v-validate="'required|alpha_spaces'"
               type="text"
               placeholder="Name"
               name="name"
-              v-model="name"
               :disabled="isSubmitting"
-              v-validate="'required|alpha_spaces'"
               :class="inputStyleFunctions('name')"
             />
             <input
+              v-model="phone"
               type="text"
               placeholder="Phone"
               name="phone"
-              v-model="phone"
               :disabled="isSubmitting"
               :class="inputStyleFunctions('phone')"
             />
             <input
+              v-model="email"
+              v-validate="'required|email'"
               type="email"
               placeholder="E-mail"
               name="email"
-              v-model="email"
               :disabled="isSubmitting"
-              v-validate="'required|email'"
               :class="inputStyleFunctions('email')"
             />
           </div>
           <div class="column col-6 col-md-12 form">
             <textarea
+              v-model="message"
+              v-validate="'required'"
               cols="30"
               rows="3"
               placeholder="Message"
               name="message"
-              v-model="message"
               :disabled="isSubmitting"
-              v-validate="'required'"
               :class="inputStyleFunctions('message')"
             ></textarea>
-            <button class="send" :disabled="!isValidToSubmit" @click="validateAndSubmit">Send</button>
+            <button
+              class="send"
+              :disabled="!isValidToSubmit"
+              @click="validateAndSubmit"
+            >
+              Send
+            </button>
           </div>
         </div>
       </transition>
@@ -67,81 +75,81 @@
 </template>
 
 <script>
-import AnimatedCheck from "~/components/ui/AnimatedCheck.vue";
-import close from "@/assets/svg/close.svg";
+import AnimatedCheck from '~/components/ui/AnimatedCheck.vue'
+import close from '@/assets/svg/close.svg'
 
 export default {
-  transition: "fade",
-  mounted() {
-    this.$store.commit("setMainClasses", ["main--dark"]);
-  },
-  head() {
-    return {
-      title: "Contact - Hans De Smet"
-    };
-  },
+  transition: 'fade',
   components: {
     AnimatedCheck
   },
   data() {
     return {
-      name: "",
-      phone: "",
-      email: "",
-      message: "",
+      name: '',
+      phone: '',
+      email: '',
+      message: '',
       isSubmitting: false,
       isSent: false
-    };
+    }
   },
   computed: {
     hasAllValues() {
       return (
         this.name.length > 0 && this.email.length > 0 && this.message.length > 0
-      );
+      )
     },
     hasErrors() {
-      return this.errors.count() > 0;
+      return this.errors.count() > 0
     },
     isValidToSubmit() {
-      return this.hasAllValues && !this.hasErrors && !this.isSubmitting;
+      return this.hasAllValues && !this.hasErrors && !this.isSubmitting
     }
+  },
+  mounted() {
+    this.$store.commit('setMainClasses', ['main--dark'])
   },
   methods: {
     inputStyleFunctions(inputName) {
       return {
-        "form-input": true,
-        "form-input--invalid": this.errors.has(inputName)
-      };
+        'form-input': true,
+        'form-input--invalid': this.errors.has(inputName)
+      }
     },
     validateAndSubmit() {
       if (this.isValidToSubmit) {
-        this.submit();
+        this.submit()
       }
     },
     async submit() {
-      this.isSubmitting = true;
+      this.isSubmitting = true
 
       try {
-        await this.$axios.$post("api/contact", {
+        await this.$axios.$post('api/contact', {
           name: this.name,
           email: this.email,
           message: this.message,
           phone: this.phone
-        });
+        })
 
-        this.name = "";
-        this.phone = "";
-        this.email = "";
-        this.message = "";
-        this.isSubmitting = false;
-        this.isSent = true;
+        this.name = ''
+        this.phone = ''
+        this.email = ''
+        this.message = ''
+        this.isSubmitting = false
+        this.isSent = true
       } catch (e) {
-        this.isSubmitting = false;
-        console.error(e);
+        this.isSubmitting = false
+        console.error(e)
       }
     }
+  },
+  head() {
+    return {
+      title: 'Contact - Hans De Smet'
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -298,5 +306,3 @@ textarea.form-input {
   }
 }
 </style>
-
-

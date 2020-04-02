@@ -1,21 +1,20 @@
 <template>
   <div :class="computedMainClasses">
-    <nuxt/>
+    <nuxt />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-  },
+  components: {},
   computed: {
     ...mapGetters(['mainClasses']),
     computedMainClasses() {
       return [...['main'], ...this.mainClasses]
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -39,7 +38,7 @@ export default {
   }
 
   &--dark {
-    background-color: #191B1F;
+    background-color: #191b1f;
   }
 
   @include above(md) {
@@ -47,4 +46,3 @@ export default {
   }
 }
 </style>
-

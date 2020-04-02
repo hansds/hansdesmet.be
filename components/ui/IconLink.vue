@@ -3,7 +3,7 @@
     <div class="icon-link__icon">
       <slot></slot>
     </div>
-    {{label}}
+    {{ label }}
   </a>
 </template>
 
@@ -17,13 +17,12 @@ export default {
     to: {
       type: String,
       default: '/'
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-
 .icon-link {
   display: inline-block;
   font-size: 1.1em;
@@ -37,7 +36,7 @@ export default {
 
     /deep/ svg {
       position: relative;
-      top: .4em;
+      top: 0.4em;
       width: 1.5em;
       height: 1.5em;
     }

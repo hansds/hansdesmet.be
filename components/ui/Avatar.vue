@@ -5,18 +5,18 @@
       sizes="(max-width: 320px) 280px, 440px"
       src="/avatar@2x.jpg"
       class="avatar__image"
-      alt="Hans De Smet"
+      alt="Hans De Smet - certified freelance Salesforce consultant from Aalst, Belgium"
       @load="onLoad"
-      />
+    />
   </div>
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
+import VLazyImage from 'v-lazy-image'
 
 export default {
   components: {
-    VLazyImage,
+    VLazyImage
   },
   data() {
     return {
@@ -26,16 +26,16 @@ export default {
   computed: {
     styleClasses() {
       return {
-        'avatar': true,
-        'avatar--loaded': this.isLoaded,
+        avatar: true,
+        'avatar--loaded': this.isLoaded
       }
-    },
+    }
   },
   methods: {
     onLoad() {
-      this.isLoaded = true;
-    },
-  },
+      this.isLoaded = true
+    }
+  }
 }
 </script>
 

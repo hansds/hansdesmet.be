@@ -3,17 +3,17 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: () => ({
-      mainClasses: [],
+      mainClasses: []
     }),
 
     getters: {
-      mainClasses: state => state.mainClasses,
+      mainClasses: (state) => state.mainClasses
     },
 
     mutations: {
       setMainClasses: (state, mainClasses) => {
         state.mainClasses = mainClasses
-      },
+      }
     }
   })
 }

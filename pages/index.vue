@@ -7,17 +7,23 @@
     <div class="content__main">
       <h1 class="c-typo-heading">
         Hi, I’m Hans De Smet
-        <span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
+        <span class="c-typo--muted"
+          >, a freelance IT architect and developer from Belgium.</span
+        >
       </h1>
       <p class="c-typo-subheading">
         I’m an
-        <span class="c-typo--primary">8x certified Salesforce consultant</span>, passionate about technology, business and design.
+        <span class="c-typo--primary">8x certified Salesforce consultant</span>,
+        passionate about technology, business and design.
       </p>
       <div>
         <h3 class="social-title">Get in touch</h3>
         <ul class="social">
           <li class="social__link">
-            <icon-link label="Resume on LinkedIn" to="https://www.linkedin.com/in/hans-de-smet">
+            <icon-link
+              label="Resume on LinkedIn"
+              to="https://www.linkedin.com/in/hans-de-smet"
+            >
               <svg>
                 <use xlink:href="#linkedin" />
               </svg>
@@ -44,12 +50,12 @@
 </template>
 
 <script>
-import Avatar from "~/components/ui/Avatar.vue";
-import IconLink from "~/components/ui/IconLink.vue";
-import IconRoute from "~/components/ui/IconRoute.vue";
-import linkedin from "@/assets/svg/linkedin.svg";
-import github from "@/assets/svg/github.svg";
-import mail from "@/assets/svg/mail.svg";
+import Avatar from '~/components/ui/Avatar.vue'
+import IconLink from '~/components/ui/IconLink.vue'
+import IconRoute from '~/components/ui/IconRoute.vue'
+import linkedin from '@/assets/svg/linkedin.svg'
+import github from '@/assets/svg/github.svg'
+import mail from '@/assets/svg/mail.svg'
 
 export default {
   components: {
@@ -57,11 +63,11 @@ export default {
     IconLink,
     IconRoute
   },
-  transition: "fade",
+  transition: 'fade',
   mounted() {
-    this.$store.commit("setMainClasses", ["main--light"]);
+    this.$store.commit('setMainClasses', ['main--light'])
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -89,7 +95,7 @@ export default {
   @include reveal(1);
 
   &::after {
-    content: " ";
+    content: ' ';
     position: absolute;
     bottom: -3em;
     left: 0;
@@ -160,4 +166,3 @@ export default {
   }
 }
 </style>
-

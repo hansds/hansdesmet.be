@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="to" class="button">{{label}}</nuxt-link>
+  <nuxt-link :to="to" class="button">{{ label }}</nuxt-link>
 </template>
 
 <script>
@@ -12,14 +12,12 @@ export default {
     to: {
       type: String,
       default: '/'
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-
-
 .button {
   position: relative;
   font-weight: 700;
@@ -27,9 +25,9 @@ export default {
   display: inline-block;
   padding: 1em 0;
   margin: 1em 1em;
-  font-size: .9em;
+  font-size: 0.9em;
 
-  &:before{
+  &:before {
     content: '';
     position: absolute;
     background-color: $primary-color-lightest;
@@ -46,7 +44,7 @@ export default {
   &:hover {
     text-decoration: none;
 
-    &:before{
+    &:before {
       width: calc(100% + 2.5em);
     }
   }
