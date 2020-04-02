@@ -9,12 +9,21 @@
     >
       <transition name="fade">
         <div v-if="isSent" key="isSent" class="columns">
+          <div class="column title">
+            <nuxt-link class="action action--close" to="/">
+              <svg>
+                <use xlink:href="#close" />
+              </svg>
+            </nuxt-link>
+          </div>
           <div class="column col-12">
             <div class="success">
               <h4 class="c-typography-p">
                 Thanks! I'll get back to you as soon as possible.
               </h4>
-              <animated-check class="animated-check" />
+              <nuxt-link to="/">
+                <animated-check class="animated-check" />
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -139,13 +148,6 @@ export default {
       this.isSubmitting = true
 
       try {
-        // await this.$axios.$post('api/contact', {
-        //   name: this.name,
-        //   email: this.email,
-        //   message: this.message,
-        //   phone: this.phone
-        // })
-
         const axiosConfig = {
           header: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }
