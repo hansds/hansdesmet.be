@@ -1,0 +1,6 @@
+[Settings]
+ID = "hansdesmet"
+
+[build]
+  publish = "dist"
+  command = "yarn generate"
