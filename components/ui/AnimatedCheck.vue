@@ -41,7 +41,7 @@ export default {}
 <style lang="scss" scoped>
 $circle-length: 9rem;
 $check-length: 2rem;
-$stroke-color: $success-color;
+$stroke-color: $c-primary;
 
 @keyframes scaleAnimation {
   0% {

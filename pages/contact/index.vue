@@ -1,14 +1,29 @@
 <template>
   <div class="contact">
-    <div class="contact-form">
+    <form
+      class="contact-form"
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <transition name="fade">
         <div v-if="isSent" key="isSent" class="columns">
+          <div class="column title">
+            <nuxt-link class="action action--close" to="/">
+              <svg>
+                <use xlink:href="#close" />
+              </svg>
+            </nuxt-link>
+          </div>
           <div class="column col-12">
             <div class="success">
               <h4 class="c-typography-p">
                 Thanks! I'll get back to you as soon as possible.
               </h4>
-              <animated-check class="animated-check" />
+              <nuxt-link to="/">
+                <animated-check class="animated-check" />
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -22,6 +37,7 @@
             </nuxt-link>
           </div>
           <div class="column col-6 col-md-12 form">
+            <input type="hidden" name="form-name" value="contact" />
             <input
               v-model="name"
               v-validate="'required|alpha_spaces'"
@@ -70,7 +86,7 @@
           </div>
         </div>
       </transition>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -110,6 +126,13 @@ export default {
     this.$store.commit('setMainClasses', ['main--dark'])
   },
   methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
     inputStyleFunctions(inputName) {
       return {
         'form-input': true,
@@ -125,12 +148,22 @@ export default {
       this.isSubmitting = true
 
       try {
-        await this.$axios.$post('api/contact', {
-          name: this.name,
-          email: this.email,
-          message: this.message,
-          phone: this.phone
-        })
+        const axiosConfig = {
+          header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }
+        await this.$axios.$post(
+          '/',
+          this.encode({
+            'form-name': 'contact',
+            ...{
+              name: this.name,
+              email: this.email,
+              message: this.message,
+              phone: this.phone
+            }
+          }),
+          axiosConfig
+        )
 
         this.name = ''
         this.phone = ''
