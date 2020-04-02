@@ -1,6 +1,12 @@
 <template>
   <div class="contact">
-    <div class="contact-form">
+    <form
+      class="contact-form"
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <transition name="fade">
         <div v-if="isSent" key="isSent" class="columns">
           <div class="column col-12">
@@ -22,6 +28,7 @@
             </nuxt-link>
           </div>
           <div class="column col-6 col-md-12 form">
+            <input type="hidden" name="form-name" value="contact" />
             <input
               v-model="name"
               v-validate="'required|alpha_spaces'"
@@ -70,7 +77,7 @@
           </div>
         </div>
       </transition>
-    </div>
+    </form>
   </div>
 </template>
 
