@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "nuxt",
     "dev-debug": "node --inspect node_modules/.bin/nuxt",
-    "deploy": "nuxt build && gcloud config set project hansdesmet && gcloud app deploy",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -37,14 +36,5 @@
     "node-sass": "^4.10.0",
     "prettier": "^1.19.1",
     "sass-loader": "^7.1.0"
-  },
-  "cloud-repo-tools": {
-    "test": {
-      "app": {
-        "msg": "Hello, Strak Plan!"
-      }
-    },
-    "requiresKeyFile": true,
-    "requiresProjectId": true
   }
 }
