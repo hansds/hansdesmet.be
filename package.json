@@ -1,7 +1,7 @@
 {
-  "name": "strak-plan",
-  "version": "1.0.0",
-  "description": "Universal website for Strak Plan, powered by vueJS",
+  "name": "hansdesmet",
+  "version": "2.0.0",
+  "description": "Static website for hansdesmet.be, powered by nuxtJS",
   "author": "Hans De Smet <hello@hansdesmet.be>",
   "private": true,
   "scripts": {
