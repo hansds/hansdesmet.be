@@ -138,7 +138,6 @@ export default {
       src: '~/plugins/vee-validate'
     }
   ],
-  serverMiddleware: ['~/api/contact', '~/middleware/redirect-to-www'],
   /**
    * Modules
    */
