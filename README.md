@@ -21,7 +21,7 @@ $ yarn generate
 
 ## 🚀 Deploy
 
-Committing or merging into `master` will result in a deploy to production.
+Committing or merging into `master` will result in a deploy to production. Submitting a merge request to `master` automatically generates a preview deploy on Netlify.
 
 ## Debug
 

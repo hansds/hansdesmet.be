@@ -138,7 +138,6 @@ export default {
       src: '~/plugins/vee-validate'
     }
   ],
-  serverMiddleware: ['~/api/contact', '~/middleware/redirect-to-www'],
   /**
    * Modules
    */
@@ -208,19 +207,7 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** Run ESLint on save
-     */
     extend(config, { isDev, isClient }) {
-      // if (isDev && isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/
-      //   })
-      // }
-
       // Excludes /assets/svg from url-loader, then passing it into svg-sprite-loader
       const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'))
       svgRule.test = /\.(png|jpe?g|gif|webp)$/
@@ -230,5 +217,9 @@ export default {
         use: 'svg-sprite-loader'
       })
     }
+  },
+  generate: {
+    // Generates a 404.html file, which is automatically picked up by Netlify
+    fallback: true
   }
 }

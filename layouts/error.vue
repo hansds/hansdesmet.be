@@ -1,34 +1,21 @@
 <template>
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <div class="error">
-          <h3
-            v-if="error.statusCode === 404"
-            class="c-typography-subtitle c-typography-subtitle--secondary"
-          >
-            Couldn't find what you were looking for...
-          </h3>
-          <h3
-            v-else
-            class="c-typography-subtitle c-typography-subtitle--secondary"
-          >
-            An error occured.
-          </h3>
-          <Button label="Go back home" to="/" />
-        </div>
-      </div>
-    </div>
+  <div class="error">
+    <h3
+      v-if="error.statusCode === 404"
+      class="c-typography-subtitle c-typography-subtitle--secondary"
+    >
+      Couldn't find what you were looking for...
+    </h3>
+    <h3 v-else class="c-typography-subtitle c-typography-subtitle--secondary">
+      An error occured.
+    </h3>
+    <nuxt-link class="link" to="/">Go back home</nuxt-link>
   </div>
 </template>
 
 <script>
-import Button from '~/components/ui/Button.vue'
-
 export default {
-  components: {
-    Button
-  },
+  components: {},
   props: ['error'],
   transition: 'fade',
   mounted() {
@@ -39,7 +26,19 @@ export default {
 
 <style lang="scss" scoped>
 .error {
-  margin: 20vh 0;
+  margin: auto;
   text-align: center;
+}
+
+.link {
+  display: inline-block;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: $c-gray-light;
+  transition: color 300ms $timing-springy;
+
+  &:hover {
+    color: $c-primary;
+  }
 }
 </style>
