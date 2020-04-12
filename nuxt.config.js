@@ -157,7 +157,7 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://www.hansdesmet.be',
     gzip: true,
-    generate: false
+    generate: true
   },
   styleResources: {
     scss: ['./assets/styles/_variables.scss', './assets/styles/_mixins.scss']
