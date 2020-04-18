@@ -5,11 +5,9 @@
     </div>
 
     <div class="content__main">
+      <!-- prettier-ignore -->
       <h1 class="c-typo-heading">
-        Hi, I’m Hans De Smet
-        <span class="c-typo--muted"
-          >, a freelance IT architect and developer from Belgium.</span
-        >
+        Hi, I’m Hans De Smet<span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
         I’m an
