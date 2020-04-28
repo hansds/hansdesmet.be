@@ -6,6 +6,7 @@
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      @submit.prevent
     >
       <transition name="fade">
         <div v-if="isSent" key="isSent" class="columns">
