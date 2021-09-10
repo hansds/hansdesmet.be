@@ -28,3 +28,7 @@ Committing or merging into `master` will result in a deploy to production. Submi
 Code can be debugged using VSCode (launch.json is present) and starting `yarn dev-debug`, then attaching the VSCode debugger. The code does not stop at breakpoints set, you need to add `debugger // eslint-disable-line` in code whenever you want to stop the debugger at that point.
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+## Node
+
+Note that this repo currently requires node11 to properly run and build.
