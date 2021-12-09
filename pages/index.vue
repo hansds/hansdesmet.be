@@ -13,7 +13,7 @@
         I’m an
         <span class="c-typo--primary">8x certified Salesforce consultant</span>,
         passionate about technology, business and design. I founded
-        <a href="https://enshift.co/en" target="_blank">enshift</a>.
+        <a href="https://enshift.co" target="_blank">enshift</a>.
       </p>
       <div>
         <h3 class="social-title">Get in touch</h3>
@@ -60,12 +60,12 @@ export default {
   components: {
     Avatar,
     IconLink,
-    IconRoute,
+    IconRoute
   },
   transition: 'fade',
   mounted() {
     this.$store.commit('setMainClasses', ['main--light'])
-  },
+  }
 }
 </script>
 
