@@ -5,7 +5,7 @@
       sizes="(max-width: 320px) 280px, 440px"
       src="/avatar@2x.jpg"
       class="avatar__image"
-      alt="Hans De Smet - certified freelance Salesforce consultant from Aalst, Belgium"
+      alt="Hans De Smet - entrepreneur and certified Salesforce developer from Aalst, Belgium"
       @load="onLoad"
     />
   </div>

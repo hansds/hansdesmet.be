@@ -7,13 +7,16 @@
     <div class="content__main">
       <!-- prettier-ignore -->
       <h1 class="c-typo-heading">
-        Hi, I’m Hans De Smet<span class="c-typo--muted">, a freelance IT architect and developer from Belgium.</span>
+        Hi — I’m Hans De Smet<span class="c-typo--muted">, an entrepreneur and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
         I’m an
-        <span class="c-typo--primary">8x certified Salesforce consultant</span>,
-        passionate about technology, business and design. I founded
-        <a href="https://enshift.co" target="_blank">enshift</a>.
+        <span class="c-typo--primary">8x certified Salesforce expert</span>. I’m
+        passionate about technology, business and design.
+        <span class="c-typo--muted">
+          I founded <a href="https://enshift.co" target="_blank">enshift</a> to
+          help business in their digital transformation.</span
+        >
       </p>
       <div>
         <h3 class="social-title">Get in touch</h3>

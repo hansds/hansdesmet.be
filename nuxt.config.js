@@ -1,5 +1,5 @@
 const title =
-  'Hans De Smet - Freelance 8x certified Salesforce consultant and developer from Belgium'
+  'Hans De Smet - Entrepreneur and 8x certified Salesforce consultant and developer from Belgium'
 const url = 'https://www.hansdesmet.be'
 export default {
   /*
@@ -22,7 +22,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Hans De Smet is a freelance IT architect and 8x certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.'
+          'Hans De Smet is an entrepreneur and 8x certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.'
       },
       {
         name: 'keywords',
@@ -32,7 +32,7 @@ export default {
       {
         property: 'og:description',
         content:
-          'Hans De Smet is a freelance IT architect and 8x certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.'
+          'Hans De Smet is an entrepreneur and 8x certified Salesforce consultant and developer from Belgium. He is passionate about technology, business and design.'
       },
       {
         property: 'og:image',
