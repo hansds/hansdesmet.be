@@ -15,7 +15,7 @@
         passionate about technology, business and design.
         <span class="c-typo--muted">
           I founded <a href="https://enshift.co" target="_blank">enshift</a> to
-          help business in their digital transformation.</span
+          help businesses in their digital transformation.</span
         >
       </p>
       <div>
