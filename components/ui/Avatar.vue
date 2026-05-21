@@ -1,10 +1,10 @@
 <template>
   <div :class="styleClasses">
     <img
+      ref="imgRef"
       src="/avatar@2x.jpg"
       srcset="/avatar@1x.jpg 400w, /avatar@2x.jpg 800w"
       sizes="(max-width: 320px) 280px, 440px"
-      loading="lazy"
       class="avatar__image"
       alt="Hans De Smet - entrepreneur and certified Salesforce developer from Aalst, Belgium"
       @load="onLoad"
@@ -13,11 +13,19 @@
 </template>
 
 <script setup>
+const imgRef = ref(null)
 const isLoaded = ref(false)
 
 function onLoad() {
   isLoaded.value = true
 }
+
+onMounted(() => {
+  // If the image already loaded before Vue hydrated (SSR), trigger immediately
+  if (imgRef.value && imgRef.value.complete) {
+    onLoad()
+  }
+})
 
 const styleClasses = computed(() => ({
   avatar: true,
