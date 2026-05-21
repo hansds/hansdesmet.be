@@ -26,23 +26,17 @@
               label="Resume on LinkedIn"
               to="https://www.linkedin.com/in/hans-de-smet"
             >
-              <svg>
-                <use xlink:href="#linkedin" />
-              </svg>
+              <LinkedinIcon />
             </icon-link>
           </li>
           <li class="social__link">
             <icon-link label="Code on GitHub" to="https://github.com/hansds">
-              <svg>
-                <use xlink:href="#github" />
-              </svg>
+              <GithubIcon />
             </icon-link>
           </li>
           <li class="social__link">
             <icon-route label="Send me a message" to="/contact">
-              <svg>
-                <use xlink:href="#mail" />
-              </svg>
+              <MailIcon />
             </icon-route>
           </li>
         </ul>
@@ -51,25 +45,25 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Avatar from '~/components/ui/Avatar.vue'
 import IconLink from '~/components/ui/IconLink.vue'
 import IconRoute from '~/components/ui/IconRoute.vue'
-import linkedin from '@/assets/svg/linkedin.svg'
-import github from '@/assets/svg/github.svg'
-import mail from '@/assets/svg/mail.svg'
+import LinkedinIcon from '@/assets/svg/linkedin.svg'
+import GithubIcon from '@/assets/svg/github.svg'
+import MailIcon from '@/assets/svg/mail.svg'
 
-export default {
-  components: {
-    Avatar,
-    IconLink,
-    IconRoute
-  },
-  transition: 'fade',
-  mounted() {
-    this.$store.commit('setMainClasses', ['main--light'])
+definePageMeta({
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
   }
-}
+})
+
+const store = useMainStore()
+onMounted(() => {
+  store.setMainClasses(['main--light'])
+})
 </script>
 
 <style lang="scss" scoped>
