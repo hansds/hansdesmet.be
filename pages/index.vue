@@ -10,12 +10,13 @@
         Hi — I’m Hans De Smet<span class="c-typo--muted">, an entrepreneur and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
-        I’m an
-        <span class="c-typo--primary">8x certified Salesforce expert</span>. I’m
-        passionate about technology, business and design.
+        I’m a
+        <span class="c-typo--primary">senior IT consultant</span>, passionate
+        about technology, business and design.
         <span class="c-typo--muted">
-          I founded <a href="https://enshift.co" target="_blank">enshift</a> to
-          help businesses in their digital transformation.</span
+          I founded
+          <a href="https://digifiers.be" target="_blank">Digifiers</a> to help
+          businesses in their digital transformation.</span
         >
       </p>
       <div>
@@ -46,24 +47,24 @@
 </template>
 
 <script setup>
-import Avatar from '~/components/ui/Avatar.vue'
-import IconLink from '~/components/ui/IconLink.vue'
-import IconRoute from '~/components/ui/IconRoute.vue'
-import LinkedinIcon from '@/assets/svg/linkedin.svg'
-import GithubIcon from '@/assets/svg/github.svg'
-import MailIcon from '@/assets/svg/mail.svg'
+import Avatar from "~/components/ui/Avatar.vue";
+import IconLink from "~/components/ui/IconLink.vue";
+import IconRoute from "~/components/ui/IconRoute.vue";
+import LinkedinIcon from "@/assets/svg/linkedin.svg";
+import GithubIcon from "@/assets/svg/github.svg";
+import MailIcon from "@/assets/svg/mail.svg";
 
 definePageMeta({
   pageTransition: {
-    name: 'fade',
-    mode: 'out-in'
-  }
-})
+    name: "fade",
+    mode: "out-in",
+  },
+});
 
-const store = useMainStore()
+const store = useMainStore();
 onMounted(() => {
-  store.setMainClasses(['main--light'])
-})
+  store.setMainClasses(["main--light"]);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -91,7 +92,7 @@ onMounted(() => {
   @include reveal(1);
 
   &::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     bottom: -3em;
     left: 0;
