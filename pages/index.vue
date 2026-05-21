@@ -60,9 +60,9 @@ definePageMeta({
   }
 })
 
-const mainClasses = useMainClasses()
+const store = useMainStore()
 onMounted(() => {
-  mainClasses.setMainClasses(['main--light'])
+  store.setMainClasses(['main--light'])
 })
 </script>
 

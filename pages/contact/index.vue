@@ -1,14 +1,16 @@
 <template>
   <div class="contact">
     <Form
+      v-slot="{ meta, errors }"
       class="contact-form"
       name="contact"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      :validation-schema="validationSchema"
       @submit="onSubmit"
     >
-      <Transition name="fade">
+      <Transition name="fade" mode="out-in">
         <div v-if="isSent" key="isSent" class="columns">
           <div class="column title">
             <NuxtLink class="action action--close" to="/">
@@ -40,21 +42,21 @@
               type="text"
               placeholder="Name"
               :disabled="isSubmitting"
-              :class="inputClasses('name')"
+              :class="inputClasses('name', errors)"
             />
             <Field
               name="phone"
               type="text"
               placeholder="Phone"
               :disabled="isSubmitting"
-              :class="inputClasses('phone')"
+              :class="inputClasses('phone', errors)"
             />
             <Field
               name="email"
               type="email"
               placeholder="E-mail"
               :disabled="isSubmitting"
-              :class="inputClasses('email')"
+              :class="inputClasses('email', errors)"
             />
           </div>
           <div class="column col-6 col-md-12 form">
@@ -65,7 +67,7 @@
               rows="3"
               placeholder="Message"
               :disabled="isSubmitting"
-              :class="inputClasses('message')"
+              :class="inputClasses('message', errors)"
             />
             <button class="send" :disabled="!meta.valid || isSubmitting" type="submit">
               Send
@@ -78,7 +80,7 @@
 </template>
 
 <script setup>
-import { Form, Field, useForm } from 'vee-validate'
+import { Form, Field } from 'vee-validate'
 import * as yup from 'yup'
 import AnimatedCheck from '~/components/ui/AnimatedCheck.vue'
 import CloseIcon from '@/assets/svg/close.svg'
@@ -93,17 +95,7 @@ const validationSchema = yup.object({
   message: yup.string().required()
 })
 
-const { meta, errors, handleSubmit } = useForm({
-  validationSchema,
-  initialValues: {
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  }
-})
-
-const onSubmit = handleSubmit(async (values) => {
+async function onSubmit(values) {
   isSubmitting.value = true
   try {
     const body = new URLSearchParams({
@@ -125,12 +117,12 @@ const onSubmit = handleSubmit(async (values) => {
   } finally {
     isSubmitting.value = false
   }
-})
+}
 
-function inputClasses(fieldName) {
+function inputClasses(fieldName, errors) {
   return {
     'form-input': true,
-    'form-input--invalid': !!errors.value[fieldName]
+    'form-input--invalid': !!errors[fieldName]
   }
 }
 
@@ -138,9 +130,9 @@ useHead({
   title: 'Contact - Hans De Smet'
 })
 
-const mainClasses = useMainClasses()
+const store = useMainStore()
 onMounted(() => {
-  mainClasses.setMainClasses(['main--dark'])
+  store.setMainClasses(['main--dark'])
 })
 
 definePageMeta({
