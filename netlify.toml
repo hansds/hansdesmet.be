@@ -1,6 +1,6 @@
-[Settings]
-ID = "hansdesmet"
-
 [build]
-  publish = "dist"
-  command = "yarn generate"
+  publish = ".output/public"
+  command = "npm run generate"
+
+[build.environment]
+  NODE_VERSION = "20"

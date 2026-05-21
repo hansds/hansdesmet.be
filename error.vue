@@ -9,19 +9,27 @@
     <h3 v-else class="c-typography-subtitle c-typography-subtitle--secondary">
       An error occured.
     </h3>
-    <nuxt-link class="link" to="/">Go back home</nuxt-link>
+    <NuxtLink class="link" to="/">Go back home</NuxtLink>
   </div>
 </template>
 
-<script>
-export default {
-  components: {},
-  props: ['error'],
-  transition: 'fade',
-  mounted() {
-    this.$store.commit('setMainClasses', [])
+<script setup>
+const nuxtError = useError()
+
+const error = computed(() => {
+  if (!nuxtError.value) {
+    return { statusCode: 500, statusMessage: 'An error occurred' }
   }
-}
+  return {
+    statusCode: nuxtError.value.statusCode || 500,
+    statusMessage: nuxtError.value.statusMessage || 'An error occurred'
+  }
+})
+
+const store = useMainStore()
+onMounted(() => {
+  store.setMainClasses([])
+})
 </script>
 
 <style lang="scss" scoped>

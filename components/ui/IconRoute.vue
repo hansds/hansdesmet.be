@@ -1,25 +1,23 @@
 <template>
-  <nuxt-link :to="to" class="icon-link">
+  <NuxtLink :to="to" class="icon-link">
     <div class="icon-link__icon">
       <slot></slot>
     </div>
     {{ label }}
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
-<script>
-export default {
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    to: {
-      type: String,
-      default: '/'
-    }
+<script setup>
+defineProps({
+  label: {
+    type: String,
+    default: ''
+  },
+  to: {
+    type: String,
+    default: '/'
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -34,7 +32,7 @@ export default {
     width: 1.8em;
     display: inline-block;
 
-    /deep/ svg {
+    :deep(svg) {
       position: relative;
       top: 0.4em;
       width: 1.5em;

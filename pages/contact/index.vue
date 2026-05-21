@@ -1,189 +1,146 @@
 <template>
   <div class="contact">
-    <form
+    <Form
+      v-slot="{ meta, errors }"
       class="contact-form"
       name="contact"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      @submit.prevent
+      :validation-schema="validationSchema"
+      @submit="onSubmit"
     >
-      <transition name="fade">
+      <Transition name="fade" mode="out-in">
         <div v-if="isSent" key="isSent" class="columns">
           <div class="column title">
-            <nuxt-link class="action action--close" to="/">
-              <svg>
-                <use xlink:href="#close" />
-              </svg>
-            </nuxt-link>
+            <NuxtLink class="action action--close" to="/">
+              <CloseIcon />
+            </NuxtLink>
           </div>
           <div class="column col-12">
             <div class="success">
               <h4 class="c-typography-p">
                 Thanks! I'll get back to you as soon as possible.
               </h4>
-              <nuxt-link to="/">
+              <NuxtLink to="/">
                 <animated-check class="animated-check" />
-              </nuxt-link>
+              </NuxtLink>
             </div>
           </div>
         </div>
-        <div v-if="!isSent" key="isNotSent" class="columns">
+        <div v-else key="isNotSent" class="columns">
           <div class="column title">
             <h1 class="c-typo-heading">Get in touch</h1>
-            <nuxt-link class="action action--close" to="/">
-              <svg>
-                <use xlink:href="#close" />
-              </svg>
-            </nuxt-link>
+            <NuxtLink class="action action--close" to="/">
+              <CloseIcon />
+            </NuxtLink>
           </div>
           <div class="column col-6 col-md-12 form">
             <input type="hidden" name="form-name" value="contact" />
-            <input
-              v-model="name"
-              v-validate="'required|alpha_spaces'"
+            <Field
+              name="name"
               type="text"
               placeholder="Name"
-              name="name"
               :disabled="isSubmitting"
-              :class="inputStyleFunctions('name')"
+              :class="inputClasses('name', errors)"
             />
-            <input
-              v-model="phone"
+            <Field
+              name="phone"
               type="text"
               placeholder="Phone"
-              name="phone"
               :disabled="isSubmitting"
-              :class="inputStyleFunctions('phone')"
+              :class="inputClasses('phone', errors)"
             />
-            <input
-              v-model="email"
-              v-validate="'required|email'"
+            <Field
+              name="email"
               type="email"
               placeholder="E-mail"
-              name="email"
               :disabled="isSubmitting"
-              :class="inputStyleFunctions('email')"
+              :class="inputClasses('email', errors)"
             />
           </div>
           <div class="column col-6 col-md-12 form">
-            <textarea
-              v-model="message"
-              v-validate="'required'"
+            <Field
+              name="message"
+              as="textarea"
               cols="30"
               rows="3"
               placeholder="Message"
-              name="message"
               :disabled="isSubmitting"
-              :class="inputStyleFunctions('message')"
-            ></textarea>
-            <button
-              class="send"
-              :disabled="!isValidToSubmit"
-              @click="validateAndSubmit"
-            >
+              :class="inputClasses('message', errors)"
+            />
+            <button class="send" :disabled="!meta.valid || isSubmitting" type="submit">
               Send
             </button>
           </div>
         </div>
-      </transition>
-    </form>
+      </Transition>
+    </Form>
   </div>
 </template>
 
-<script>
+<script setup>
+import { Form, Field } from 'vee-validate'
+import * as yup from 'yup'
 import AnimatedCheck from '~/components/ui/AnimatedCheck.vue'
-import close from '@/assets/svg/close.svg'
+import CloseIcon from '@/assets/svg/close.svg'
 
-export default {
-  transition: 'fade',
-  components: {
-    AnimatedCheck
-  },
-  data() {
-    return {
-      name: '',
-      phone: '',
-      email: '',
-      message: '',
-      isSubmitting: false,
-      isSent: false
-    }
-  },
-  computed: {
-    hasAllValues() {
-      return (
-        this.name.length > 0 && this.email.length > 0 && this.message.length > 0
-      )
-    },
-    hasErrors() {
-      return this.errors.count() > 0
-    },
-    isValidToSubmit() {
-      return this.hasAllValues && !this.hasErrors && !this.isSubmitting
-    }
-  },
-  mounted() {
-    this.$store.commit('setMainClasses', ['main--dark'])
-  },
-  methods: {
-    encode(data) {
-      return Object.keys(data)
-        .map(
-          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-        )
-        .join('&')
-    },
-    inputStyleFunctions(inputName) {
-      return {
-        'form-input': true,
-        'form-input--invalid': this.errors.has(inputName)
-      }
-    },
-    validateAndSubmit() {
-      if (this.isValidToSubmit) {
-        this.submit()
-      }
-    },
-    async submit() {
-      this.isSubmitting = true
+const isSubmitting = ref(false)
+const isSent = ref(false)
 
-      try {
-        const axiosConfig = {
-          header: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        }
-        await this.$axios.$post(
-          '/',
-          this.encode({
-            'form-name': 'contact',
-            ...{
-              name: this.name,
-              email: this.email,
-              message: this.message,
-              phone: this.phone
-            }
-          }),
-          axiosConfig
-        )
+const validationSchema = yup.object({
+  name: yup.string().required(),
+  phone: yup.string(),
+  email: yup.string().email().required(),
+  message: yup.string().required()
+})
 
-        this.name = ''
-        this.phone = ''
-        this.email = ''
-        this.message = ''
-        this.isSubmitting = false
-        this.isSent = true
-      } catch (e) {
-        this.isSubmitting = false
-        console.error(e)
+async function onSubmit(values) {
+  isSubmitting.value = true
+  try {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      ...values
+    }).toString()
+
+    await $fetch('/', {
+      method: 'POST',
+      body,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
-    }
-  },
-  head() {
-    return {
-      title: 'Contact - Hans De Smet'
-    }
+    })
+
+    isSent.value = true
+  } catch (e) {
+    console.error(e)
+  } finally {
+    isSubmitting.value = false
   }
 }
+
+function inputClasses(fieldName, errors) {
+  return {
+    'form-input': true,
+    'form-input--invalid': !!errors[fieldName]
+  }
+}
+
+useHead({
+  title: 'Contact - Hans De Smet'
+})
+
+const store = useMainStore()
+onMounted(() => {
+  store.setMainClasses(['main--dark'])
+})
+
+definePageMeta({
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -262,7 +219,7 @@ export default {
   flex-direction: column-reverse;
   align-items: center;
 
-  .animated-check /deep/ svg {
+  .animated-check :deep(svg) {
     width: 10rem;
     height: 10rem;
   }

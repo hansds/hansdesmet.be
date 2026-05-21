@@ -1,21 +1,12 @@
 <template>
   <div :class="computedMainClasses">
-    <nuxt />
+    <slot />
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-
-export default {
-  components: {},
-  computed: {
-    ...mapGetters(['mainClasses']),
-    computedMainClasses() {
-      return [...['main'], ...this.mainClasses]
-    }
-  }
-}
+<script setup>
+const store = useMainStore()
+const computedMainClasses = computed(() => ['main', ...store.classes])
 </script>
 
 <style lang="scss" scoped>

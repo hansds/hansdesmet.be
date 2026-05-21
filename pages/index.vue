@@ -10,12 +10,13 @@
         Hi — I’m Hans De Smet<span class="c-typo--muted">, an entrepreneur and developer from Belgium.</span>
       </h1>
       <p class="c-typo-subheading">
-        I’m an
-        <span class="c-typo--primary">8x certified Salesforce expert</span>. I’m
-        passionate about technology, business and design.
+        I’m a
+        <span class="c-typo--primary">senior IT consultant</span>, passionate
+        about technology, business and design.
         <span class="c-typo--muted">
-          I founded <a href="https://enshift.co" target="_blank">enshift</a> to
-          help businesses in their digital transformation.</span
+          I founded
+          <a href="https://digifiers.be" target="_blank">Digifiers</a> to help
+          businesses in their digital transformation.</span
         >
       </p>
       <div>
@@ -26,23 +27,17 @@
               label="Resume on LinkedIn"
               to="https://www.linkedin.com/in/hans-de-smet"
             >
-              <svg>
-                <use xlink:href="#linkedin" />
-              </svg>
+              <LinkedinIcon />
             </icon-link>
           </li>
           <li class="social__link">
             <icon-link label="Code on GitHub" to="https://github.com/hansds">
-              <svg>
-                <use xlink:href="#github" />
-              </svg>
+              <GithubIcon />
             </icon-link>
           </li>
           <li class="social__link">
             <icon-route label="Send me a message" to="/contact">
-              <svg>
-                <use xlink:href="#mail" />
-              </svg>
+              <MailIcon />
             </icon-route>
           </li>
         </ul>
@@ -51,25 +46,25 @@
   </div>
 </template>
 
-<script>
-import Avatar from '~/components/ui/Avatar.vue'
-import IconLink from '~/components/ui/IconLink.vue'
-import IconRoute from '~/components/ui/IconRoute.vue'
-import linkedin from '@/assets/svg/linkedin.svg'
-import github from '@/assets/svg/github.svg'
-import mail from '@/assets/svg/mail.svg'
+<script setup>
+import Avatar from "~/components/ui/Avatar.vue";
+import IconLink from "~/components/ui/IconLink.vue";
+import IconRoute from "~/components/ui/IconRoute.vue";
+import LinkedinIcon from "@/assets/svg/linkedin.svg";
+import GithubIcon from "@/assets/svg/github.svg";
+import MailIcon from "@/assets/svg/mail.svg";
 
-export default {
-  components: {
-    Avatar,
-    IconLink,
-    IconRoute
+definePageMeta({
+  pageTransition: {
+    name: "fade",
+    mode: "out-in",
   },
-  transition: 'fade',
-  mounted() {
-    this.$store.commit('setMainClasses', ['main--light'])
-  }
-}
+});
+
+const store = useMainStore();
+onMounted(() => {
+  store.setMainClasses(["main--light"]);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -97,7 +92,7 @@ export default {
   @include reveal(1);
 
   &::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     bottom: -3em;
     left: 0;

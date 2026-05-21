@@ -7,19 +7,17 @@
   </a>
 </template>
 
-<script>
-export default {
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    to: {
-      type: String,
-      default: '/'
-    }
+<script setup>
+defineProps({
+  label: {
+    type: String,
+    default: ''
+  },
+  to: {
+    type: String,
+    default: '/'
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -34,7 +32,7 @@ export default {
     width: 1.8em;
     display: inline-block;
 
-    /deep/ svg {
+    :deep(svg) {
       position: relative;
       top: 0.4em;
       width: 1.5em;

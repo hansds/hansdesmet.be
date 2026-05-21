@@ -1,20 +1,18 @@
 <template>
-  <nuxt-link :to="to" class="button">{{ label }}</nuxt-link>
+  <NuxtLink :to="to" class="button">{{ label }}</NuxtLink>
 </template>
 
-<script>
-export default {
-  props: {
-    label: {
-      type: String,
-      default: ''
-    },
-    to: {
-      type: String,
-      default: '/'
-    }
+<script setup>
+defineProps({
+  label: {
+    type: String,
+    default: ''
+  },
+  to: {
+    type: String,
+    default: '/'
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

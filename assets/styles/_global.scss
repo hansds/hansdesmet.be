@@ -9,13 +9,3 @@
   background-color: $primary-color;
   color: $light-color;
 }
-
-.v-lazy-image {
-  opacity: 0;
-}
-
-.v-lazy-image-loaded {
-  animation: fade-in-image .5s;
-  opacity: 1;
-  animation-timing-function: $timing-springy;
-}
