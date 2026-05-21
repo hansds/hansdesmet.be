@@ -108,7 +108,7 @@ export default defineNuxtConfig({
 
   css: ['@/assets/styles/main.scss'],
 
-  modules: ['@pinia/nuxt', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/sitemap'],
 
   site: {
     url: 'https://www.hansdesmet.be'
@@ -131,6 +131,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'static',
     prerender: {
       routes: ['/sitemap.xml']
     }

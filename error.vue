@@ -26,9 +26,9 @@ const error = computed(() => {
   }
 })
 
-const store = useMainStore()
+const mainClasses = useMainClasses()
 onMounted(() => {
-  store.setMainClasses([])
+  mainClasses.setMainClasses([])
 })
 </script>
 

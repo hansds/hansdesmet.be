@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-const store = useMainStore()
-const computedMainClasses = computed(() => ['main', ...store.classes])
+const mainClasses = useMainClasses()
+const computedMainClasses = computed(() => ['main', ...mainClasses.classes.value])
 </script>
 
 <style lang="scss" scoped>

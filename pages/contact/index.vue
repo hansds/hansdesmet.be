@@ -138,9 +138,9 @@ useHead({
   title: 'Contact - Hans De Smet'
 })
 
-const store = useMainStore()
+const mainClasses = useMainClasses()
 onMounted(() => {
-  store.setMainClasses(['main--dark'])
+  mainClasses.setMainClasses(['main--dark'])
 })
 
 definePageMeta({
