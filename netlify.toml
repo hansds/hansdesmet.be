@@ -1,6 +1,6 @@
-[Settings]
-ID = "hansdesmet"
-
 [build]
   publish = ".output/public"
   command = "npm run generate"
+
+[build.environment]
+  NODE_VERSION = "20"
